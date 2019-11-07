@@ -16,7 +16,7 @@ import com.example.sevendaysaweek.R;
 import com.example.sevendaysaweek.Signup_user;
 
 public class Gender_dialog extends DialogFragment {
-
+//new
     private String gender;
     @NonNull
     @Override
