@@ -33,6 +33,7 @@ public class Login_Avtivity extends AppCompatActivity {
         progressDialog=new ProgressDialog(this);
         firebaseAuth=firebaseAuth.getInstance();
         User=firebaseAuth.getCurrentUser();
+        User.reload();
     }
 
     public void LoginUser(View view)
@@ -41,37 +42,38 @@ public class Login_Avtivity extends AppCompatActivity {
         UserLogin();
     }
 
-    private void UserLogin()
-    {
-        String email=LoginEmail.getText().toString().trim();
-        String password=LoginPassword.getText().toString().trim();
+    private void UserLogin() {
+        String email = LoginEmail.getText().toString().trim();
+        String password = LoginPassword.getText().toString().trim();
 
         progressDialog.setMessage("Loging in.....");
         progressDialog.show();
         User.reload();
 
-//            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                @Override
-//                public void onComplete(@NonNull Task<AuthResult> task) {
-//
-//                    if (task.isSuccessful()) {
-//                        progressDialog.dismiss();
-//                        Intent intent = new Intent(Login_Avtivity.this, MainActivity.class);
-//                        Login_Avtivity.this.startActivity(intent);
-//
-//                        Toast.makeText(Login_Avtivity.this, "succesful", Toast.LENGTH_LONG).show();
-//                    } else {
-//                        progressDialog.dismiss();
-//                        Toast.makeText(Login_Avtivity.this, "Email or Password does not match", Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            });
-        boolean h=User.isEmailVerified();
-        System.out.println(h);
+        if (User.isEmailVerified()) {
+            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if (task.isSuccessful()) {
+                        progressDialog.dismiss();
+                        Intent intent = new Intent(Login_Avtivity.this, MainActivity.class);
+                        Login_Avtivity.this.startActivity(intent);
+
+                        Toast.makeText(Login_Avtivity.this, "succesful", Toast.LENGTH_LONG).show();
+                    } else {
+                        progressDialog.dismiss();
+                        Toast.makeText(Login_Avtivity.this, "Email or Password does not match", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
 
 
-
-
+        }
+        else
+        {
+            Toast.makeText(Login_Avtivity.this, "not verified", Toast.LENGTH_LONG).show();
+        }
     }
 
 }
