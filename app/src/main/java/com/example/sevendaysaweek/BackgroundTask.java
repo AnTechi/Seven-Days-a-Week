@@ -45,12 +45,13 @@ this.ctx=ctx;
         String login_url="http://10.0.2.2/webapp/login.php";
         String method=params[0];
         if(method.equals("register")){
-            String id=params[1];
+            String user_id=params[1];
             String name=params[2];
             String email_id=params[3];
             String phone=params[4];
             String gender=params[5];
             String dateofbirth=params[6];
+            String password=params[7];
             try {
                 URL url=new URL(reg_url);
 
@@ -59,12 +60,13 @@ httpURLConnection.setRequestMethod("POST");
 httpURLConnection.setDoOutput(true);
                 OutputStream OS =httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(OS,"UTF-8"));
-                String data= URLEncoder.encode("id","UTF-8")+"="+URLEncoder.encode(id,"UTF-8")+"&"+
+                String data= URLEncoder.encode("user_id","UTF-8")+"="+URLEncoder.encode(user_id,"UTF-8")+"&"+
                         URLEncoder.encode("name","UTF-8")+"="+URLEncoder.encode(name,"UTF-8")+"&"+
                         URLEncoder.encode("email_id","UTF-8")+"="+URLEncoder.encode(email_id,"UTF-8")+"&"+
                         URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode(phone,"UTF-8")+"&"+
                         URLEncoder.encode("gender","UTF-8")+"="+URLEncoder.encode(gender,"UTF-8")+"&"+
-                        URLEncoder.encode("DateOfBirth","UTF-8")+"="+URLEncoder.encode(dateofbirth,"UTF-8");
+                        URLEncoder.encode("DateOfBirth","UTF-8")+"="+URLEncoder.encode(dateofbirth,"UTF-8")+"&"+
+                        URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();

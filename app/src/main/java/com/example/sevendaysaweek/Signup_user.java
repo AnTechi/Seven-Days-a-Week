@@ -22,12 +22,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
 
 public class Signup_user extends AppCompatActivity {
-    private EditText name,email_id,phone,gen,dateofbirth;
-    String name_register,email_id_register,phone_register,gen_register,dateofbirth_register;
+    private EditText name,email_id,phone,gen,dateofbirth,password;
+    String name_register,email_id_register,phone_register,gen_register,dateofbirth_register,password_register;
     int id=1;
 
     private DatePicker datePicker;
@@ -39,6 +40,7 @@ public class Signup_user extends AppCompatActivity {
     private String gender;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +48,13 @@ public class Signup_user extends AppCompatActivity {
         setContentView(R.layout.activity_signup_user);
         progressDialog=new ProgressDialog(this);
         firebaseAuth=FirebaseAuth.getInstance();
+        firebaseUser=firebaseAuth.getCurrentUser();
         name=findViewById(R.id.Signup_Name);
         email_id=findViewById(R.id.Signup_Email);
         phone=findViewById(R.id.Signup_Phone);
         gen=findViewById(R.id.Signup_Gender);
         dateofbirth=findViewById(R.id.Signup_Age);
+        password=findViewById(R.id.Signup_Password);
 
         gender_txt=findViewById(R.id.Signup_Gender);
         dateView = (TextView) findViewById(R.id.Signup_Age);
@@ -152,28 +156,32 @@ public class Signup_user extends AppCompatActivity {
     //Registering Data..
     public void UserRegister(View view)
     {
+
         name_register =name.getText().toString();
-        email_id_register=email_id.getText().toString();
+        email_id_register=email_id.getText().toString().trim();
         phone_register=phone.getText().toString();
         gen_register=gen.getText().toString();
         dateofbirth_register=dateofbirth.getText().toString();
+        password_register=password.getText().toString().trim();
+
         String method="register";
         BackgroundTask backgroundTask=new BackgroundTask(this);
-        backgroundTask.execute(method,Integer.toString(id),name_register,email_id_register,phone_register,gen_register,dateofbirth_register);
+        backgroundTask.execute(method,Integer.toString(id),name_register,email_id_register,phone_register,gen_register,dateofbirth_register,password_register);
         id=id+1;
-        finish();
+        RegisterUser();
+
+
+
 
     }
     private void RegisterUser()
     {
-        String email=email_id.getText().toString().trim();
-        String password=name.getText().toString().trim();
 
-        if(TextUtils.isEmpty(email))
+        if(TextUtils.isEmpty(email_id_register))
         {
             Toast.makeText(this,"enter email",Toast.LENGTH_LONG).show();
         }
-        if(TextUtils.isEmpty(password))
+        if(TextUtils.isEmpty(password_register))
         {
             Toast.makeText(this,"enter epassword",Toast.LENGTH_LONG).show();
         }
@@ -181,13 +189,18 @@ public class Signup_user extends AppCompatActivity {
 
         progressDialog.setMessage("Registering.....");
         progressDialog.show();
-        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(email_id_register,password_register).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful())
                 {
+
+
+                    VerifyEmail();
                     progressDialog.dismiss();
+                    Intent loginIntent=new Intent(Signup_user.this,Login_Avtivity.class);
+                    Signup_user.this.startActivity(loginIntent);
                     Toast.makeText(Signup_user.this,"succesful",Toast.LENGTH_LONG).show();
                 }
                 else
@@ -198,43 +211,33 @@ public class Signup_user extends AppCompatActivity {
             }
         });
 
-    }
-   public void LoginUser()
-   {
-       String email=email_id.getText().toString().trim();
-       String password=name.getText().toString().trim();
-
-       if(TextUtils.isEmpty(email))
-       {
-           Toast.makeText(this,"enter email",Toast.LENGTH_LONG).show();
-       }
-       if(TextUtils.isEmpty(password))
-       {
-           Toast.makeText(this,"enter epassword",Toast.LENGTH_LONG).show();
-       }
 
 
-       progressDialog.setMessage("Registering.....");
-       progressDialog.show();
-       firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-           @Override
-           public void onComplete(@NonNull Task<AuthResult> task) {
 
-               if(task.isSuccessful())
-               {
-                   progressDialog.dismiss();
-                   Toast.makeText(Signup_user.this,"succesful",Toast.LENGTH_LONG).show();
-               }
-               else
-               {
-                   progressDialog.dismiss();
-                   Toast.makeText(Signup_user.this,"not succesful",Toast.LENGTH_LONG).show();
-               }
-           }
-       });
-   }
+}
+public void VerifyEmail()
+{
+    firebaseUser.sendEmailVerification()
+            .addOnCompleteListener(this, new OnCompleteListener() {
+                @Override
+                public void onComplete(@NonNull Task task) {
+                    // Re-enable button
 
-    public void Firebase(View view) {
-      LoginUser();
-    }
+
+                    if (task.isSuccessful()) {
+                        Toast.makeText(Signup_user.this,
+                                "Verification email sent to " + firebaseUser.getEmail(),
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        Toast.makeText(Signup_user.this,
+                                "Failed to send verification email.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+}
+
+
+
 }
