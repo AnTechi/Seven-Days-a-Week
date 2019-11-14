@@ -40,10 +40,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:layout_below="@+id/Signup_Email"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+
         android:layout_marginTop="25dp"
         android:textAlignment="center"
         android:hint="Phone Number"/>
@@ -64,24 +65,46 @@
 
     <EditText
         android:id="@+id/Signup_Age"
+        android:onClick="setDate"
 
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
         android:layout_below="@+id/Signup_Gender"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="25dp"
         android:textAlignment="center"
-        android:hint="Age"
+        android:hint="Date of Birth"
+
         />
+
+    <EditText
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Signup_Gender"
+        android:layout_marginLeft="30dp"
+
+        android:layout_marginTop="25dp"
+        android:editable="false"
+        android:clickable="false"
+        android:inputType="date"
+
+        android:layout_marginRight="41dp"
+
+        android:hint="D.O.B"
+
+
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Register"
+        android:onClick="Firebase"
         android:layout_below="@+id/Signup_Age"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"

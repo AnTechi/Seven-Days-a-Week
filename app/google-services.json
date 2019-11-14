@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "655094005049",
+    "firebase_url": "https://seven-days-a-week-485f1.firebaseio.com",
+    "project_id": "seven-days-a-week-485f1",
+    "storage_bucket": "seven-days-a-week-485f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655094005049:android:ccf072abdf1e855efcfce8",
+        "android_client_info": {
+          "package_name": "com.example.sevendaysaweek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655094005049-9fotr7bhg1lbomgnesqn2igltcfpmsdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArEUGzMoh9EnT1sdkBDrQ_F81TCpVu59k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655094005049-9fotr7bhg1lbomgnesqn2igltcfpmsdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

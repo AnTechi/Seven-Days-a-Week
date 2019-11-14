@@ -1,32 +1,79 @@
 package com.example.sevendaysaweek;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Calendar;
 
 public class Signup_user extends AppCompatActivity {
+    private EditText name,email_id,phone,gen,dateofbirth;
+    String name_register,email_id_register,phone_register,gen_register,dateofbirth_register;
+    int id=1;
+
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private TextView dateView;
+    private int year, month, day;
 
     public TextView gender_txt;
     private String gender;
+    private ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_user);
+        progressDialog=new ProgressDialog(this);
+        firebaseAuth=FirebaseAuth.getInstance();
+        name=findViewById(R.id.Signup_Name);
+        email_id=findViewById(R.id.Signup_Email);
+        phone=findViewById(R.id.Signup_Phone);
+        gen=findViewById(R.id.Signup_Gender);
+        dateofbirth=findViewById(R.id.Signup_Age);
 
         gender_txt=findViewById(R.id.Signup_Gender);
+        dateView = (TextView) findViewById(R.id.Signup_Age);
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        showDate(year, month+1, day);
+
+
+
     }
+
 
     public void Display_genderdialog(View view)
     {
         GetGender();
 
     }
+
+
+    //get gender dialog box..
     public void GetGender()
     {
 
@@ -63,5 +110,131 @@ public class Signup_user extends AppCompatActivity {
 
 
 
+    }
+
+    //birth date picker..
+    public void setDate(View view) {
+        showDialog(999);
+        Toast.makeText(getApplicationContext(), "ca",
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        // TODO Auto-generated method stub
+        if (id == 999) {
+            return new DatePickerDialog(this,
+                    myDateListener, year, month, day);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener myDateListener = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
+                    showDate(arg1, arg2+1, arg3);
+                }
+            };
+
+    private void showDate(int year, int month, int day) {
+        dateView.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+
+
+    //Registering Data..
+    public void UserRegister(View view)
+    {
+        name_register =name.getText().toString();
+        email_id_register=email_id.getText().toString();
+        phone_register=phone.getText().toString();
+        gen_register=gen.getText().toString();
+        dateofbirth_register=dateofbirth.getText().toString();
+        String method="register";
+        BackgroundTask backgroundTask=new BackgroundTask(this);
+        backgroundTask.execute(method,Integer.toString(id),name_register,email_id_register,phone_register,gen_register,dateofbirth_register);
+        id=id+1;
+        finish();
+
+    }
+    private void RegisterUser()
+    {
+        String email=email_id.getText().toString().trim();
+        String password=name.getText().toString().trim();
+
+        if(TextUtils.isEmpty(email))
+        {
+            Toast.makeText(this,"enter email",Toast.LENGTH_LONG).show();
+        }
+        if(TextUtils.isEmpty(password))
+        {
+            Toast.makeText(this,"enter epassword",Toast.LENGTH_LONG).show();
+        }
+
+
+        progressDialog.setMessage("Registering.....");
+        progressDialog.show();
+        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(task.isSuccessful())
+                {
+                    progressDialog.dismiss();
+                    Toast.makeText(Signup_user.this,"succesful",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    progressDialog.dismiss();
+                    Toast.makeText(Signup_user.this,"not succesful",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    }
+   public void LoginUser()
+   {
+       String email=email_id.getText().toString().trim();
+       String password=name.getText().toString().trim();
+
+       if(TextUtils.isEmpty(email))
+       {
+           Toast.makeText(this,"enter email",Toast.LENGTH_LONG).show();
+       }
+       if(TextUtils.isEmpty(password))
+       {
+           Toast.makeText(this,"enter epassword",Toast.LENGTH_LONG).show();
+       }
+
+
+       progressDialog.setMessage("Registering.....");
+       progressDialog.show();
+       firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+           @Override
+           public void onComplete(@NonNull Task<AuthResult> task) {
+
+               if(task.isSuccessful())
+               {
+                   progressDialog.dismiss();
+                   Toast.makeText(Signup_user.this,"succesful",Toast.LENGTH_LONG).show();
+               }
+               else
+               {
+                   progressDialog.dismiss();
+                   Toast.makeText(Signup_user.this,"not succesful",Toast.LENGTH_LONG).show();
+               }
+           }
+       });
+   }
+
+    public void Firebase(View view) {
+      LoginUser();
     }
 }
