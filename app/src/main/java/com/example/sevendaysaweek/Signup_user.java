@@ -11,7 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MotionEvent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -163,13 +163,25 @@ public class Signup_user extends AppCompatActivity {
         gen_register=gen.getText().toString();
         dateofbirth_register=dateofbirth.getText().toString();
         password_register=password.getText().toString().trim();
+        String email = email_id_register;
 
-        String method="register";
-        BackgroundTask backgroundTask=new BackgroundTask(this);
-        backgroundTask.execute(method,Integer.toString(id),name_register,email_id_register,phone_register,gen_register,dateofbirth_register,password_register);
-        id=id+1;
-        RegisterUser();
-
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+if(TextUtils.isEmpty(name_register) || TextUtils.isEmpty(email_id_register)|| TextUtils.isEmpty(phone_register)||TextUtils.isEmpty(gen_register) || TextUtils.isEmpty(dateofbirth_register) ||TextUtils.isEmpty(password_register))
+{
+    Toast.makeText(this, "(*)Fields are mandatory", Toast.LENGTH_SHORT).show();
+}
+    
+    else {
+        if(email.matches(emailPattern)){
+            String method = "register";
+            BackgroundTask backgroundTask = new BackgroundTask(this);
+            backgroundTask.execute(method, Integer.toString(id), name_register, email_id_register, phone_register, gen_register, dateofbirth_register, password_register);
+            id = id + 1;
+            RegisterUser();
+        }
+        else{
+            Toast.makeText(this, "Invalid EmailAddress", Toast.LENGTH_SHORT).show();}
+}
 
 
 
