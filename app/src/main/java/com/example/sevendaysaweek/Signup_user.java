@@ -153,7 +153,7 @@ public class Signup_user extends AppCompatActivity {
     }
 
 
-    //Registering Data..
+    //Registering Data on localhost
     public void UserRegister(View view)
     {
 
@@ -174,6 +174,9 @@ public class Signup_user extends AppCompatActivity {
 
 
     }
+
+
+    //Registering User on Firebase
     private void RegisterUser()
     {
 
@@ -215,6 +218,8 @@ public class Signup_user extends AppCompatActivity {
 
 
 }
+
+//Sending Verification email
 public void VerifyEmail()
 {
     firebaseUser.sendEmailVerification()
@@ -239,5 +244,9 @@ public void VerifyEmail()
 }
 
 
-
+    public void Login(View view)
+    {
+        Intent loginIntent=new Intent(Signup_user.this,Login_Avtivity.class);
+        Signup_user.this.startActivity(loginIntent);
+    }
 }
