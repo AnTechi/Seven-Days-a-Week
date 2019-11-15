@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Login_Avtivity"></activity>
+        <activity android:name=".ResetPassword_activity"></activity>
+        <activity android:name=".Login_Avtivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Signup_user">
             <intent-filter>

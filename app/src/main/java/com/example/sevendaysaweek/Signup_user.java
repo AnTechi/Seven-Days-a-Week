@@ -3,6 +3,7 @@ package com.example.sevendaysaweek;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -11,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.DatePicker;
@@ -35,7 +37,7 @@ public class Signup_user extends AppCompatActivity {
     private Calendar calendar;
     private TextView dateView;
     private int year, month, day;
-
+    private Toolbar toolbar;
     public TextView gender_txt;
     private String gender;
     private ProgressDialog progressDialog;
@@ -49,13 +51,21 @@ public class Signup_user extends AppCompatActivity {
         progressDialog=new ProgressDialog(this);
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseUser=firebaseAuth.getCurrentUser();
-        name=findViewById(R.id.Signup_Name);
+        //Toolbar settings
+        {
+            toolbar = findViewById(R.id.toolbar);
+            toolbar.setTitle("Sign Up");
+            toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+         name=findViewById(R.id.Signup_Name);
         email_id=findViewById(R.id.Signup_Email);
         phone=findViewById(R.id.Signup_Phone);
         gen=findViewById(R.id.Signup_Gender);
         dateofbirth=findViewById(R.id.Signup_Age);
         password=findViewById(R.id.Signup_Password);
-
         gender_txt=findViewById(R.id.Signup_Gender);
         dateView = (TextView) findViewById(R.id.Signup_Age);
         calendar = Calendar.getInstance();
@@ -63,11 +73,20 @@ public class Signup_user extends AppCompatActivity {
 
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+       // showDate(year, month+1, day);
+
+
 
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
     public void Display_genderdialog(View view)
@@ -153,7 +172,7 @@ public class Signup_user extends AppCompatActivity {
     }
 
 
-    //Registering Data..
+    //Registering Data on localhost
     public void UserRegister(View view)
     {
 
@@ -170,7 +189,7 @@ if(TextUtils.isEmpty(name_register) || TextUtils.isEmpty(email_id_register)|| Te
 {
     Toast.makeText(this, "(*)Fields are mandatory", Toast.LENGTH_SHORT).show();
 }
-    
+
     else {
         if(email.matches(emailPattern)){
             String method = "register";
@@ -186,6 +205,9 @@ if(TextUtils.isEmpty(name_register) || TextUtils.isEmpty(email_id_register)|| Te
 
 
     }
+
+
+    //Registering User on Firebase
     private void RegisterUser()
     {
 
@@ -227,6 +249,8 @@ if(TextUtils.isEmpty(name_register) || TextUtils.isEmpty(email_id_register)|| Te
 
 
 }
+
+//Sending Verification email
 public void VerifyEmail()
 {
     firebaseUser.sendEmailVerification()
@@ -251,5 +275,9 @@ public void VerifyEmail()
 }
 
 
+    public void Login(View view)
+    {
+        startActivity(new Intent(this,Login_Avtivity.class));
 
+    }
 }
