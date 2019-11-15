@@ -66,7 +66,7 @@ public class Login_Avtivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Login buttonClick
+    //Login buttonClicked
     public void LoginUser(View view)
     {
 
