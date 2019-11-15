@@ -29,7 +29,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Calendar;
 
 public class Signup_user extends AppCompatActivity {
-    private EditText name,email_id,phone,gen,dateofbirth,password;
+    private EditText name,email_id,phone,password;
+    private TextView dateofbirth,gen;
     String name_register,email_id_register,phone_register,gen_register,dateofbirth_register,password_register;
     int id=1;
 
