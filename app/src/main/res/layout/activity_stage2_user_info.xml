@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Stage2UserInfo"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/toolbar_layout"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Information"
+            android:textStyle="bold"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="18sp"
+            android:textSize="20sp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/InfoLabel"
+            ></TextView>
+        <EditText
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:layout_below="@+id/InfoLabel"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/FullnameTxt"
+            ></EditText>
+
+        <EditText
+            android:id="@+id/SocialSecurityTxt"
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/InfoLabel"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="205dp"
+            android:layout_toRightOf="@+id/FullnameTxt"
+            android:hint="Social Security No."></EditText>
+
+        <EditText
+            android:id="@+id/PresentAddressTxt"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/FullnameTxt"
+            android:layout_marginLeft="25dp"
+            android:hint="Present Address"></EditText>
+        <EditText
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:textAlignment="center"
+            android:layout_below="@+id/PresentAddressTxt"
+            android:id="@+id/PresentCityTxt"
+            android:layout_marginLeft="25dp"></EditText>
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="State"
+            android:textAlignment="center"
+            android:layout_below="@+id/PresentAddressTxt"
+            android:id="@+id/PresentStateTxt"
+
+            android:layout_toRightOf="@+id/PresentCityTxt"></EditText>
+        <EditText
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:hint="Zip"
+            android:textAlignment="center"
+            android:layout_below="@+id/PresentAddressTxt"
+            android:id="@+id/PresentZipTxt"
+            android:layout_toRightOf="@+id/PresentStateTxt"></EditText>
+
+
+        <EditText
+            android:id="@+id/PermanentAddressTxt"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PresentCityTxt"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:hint="Permanent Address"></EditText>
+        <EditText
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:textAlignment="center"
+            android:layout_below="@+id/PermanentAddressTxt"
+            android:id="@+id/PermanentCityTxt"
+            android:layout_marginLeft="25dp"></EditText>
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="State"
+            android:textAlignment="center"
+            android:layout_below="@+id/PermanentAddressTxt"
+            android:id="@+id/PermanentStateTxt"
+
+            android:layout_toRightOf="@+id/PermanentCityTxt"></EditText>
+        <EditText
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:hint="Zip"
+            android:textAlignment="center"
+            android:layout_below="@+id/PermanentAddressTxt"
+            android:id="@+id/PermanentZipTxt"
+            android:layout_toRightOf="@+id/PermanentStateTxt"></EditText>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>
