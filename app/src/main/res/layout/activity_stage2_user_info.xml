@@ -35,9 +35,7 @@
             android:layout_marginTop="15dp"
             android:id="@+id/LinearLayout1"
             >
-
-
-        <EditText
+            <EditText
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
@@ -109,11 +107,23 @@
             android:layout_toRightOf="@+id/PresentStateTxt"></EditText>
 
         </LinearLayout>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Country"
+            android:id="@+id/PresentCountryTxt"
+            android:layout_below="@+id/LinearLayout2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:textAlignment="center"/>
+
         <EditText
             android:id="@+id/PermanentAddressTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/LinearLayout2"
+            android:layout_below="@+id/PresentCountryTxt"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="25dp"
@@ -156,13 +166,23 @@
             android:layout_toRightOf="@+id/PermanentStateTxt"></EditText>
 
         </LinearLayout>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Country"
+            android:id="@+id/PermanentCountryTxt"
+            android:layout_below="@+id/LinearLayout3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:textAlignment="center"/>
 
         <View
             android:id="@+id/FirstSeparator"
             android:layout_width="fill_parent"
             android:layout_height="2dp"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/LinearLayout3"
+            android:layout_below="@+id/PermanentCountryTxt"
             android:layout_marginTop="20dp"
             android:background="#808080" />
 
@@ -208,7 +228,8 @@
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
                 android:hint="Start Date"
-                android:textSize="18sp"
+                android:textSize="12sp"
+                android:onClick="setDate"
                 android:background="#d7d1d1"
                 android:textAlignment="center"
                 android:layout_marginEnd="25dp"
@@ -232,24 +253,32 @@
             android:layout_width="150dp"
             android:layout_height="24dp"
             android:layout_below="@+id/LinearLayout4"
+            android:orientation="horizontal"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/CurrentlyEmployedLabel">
+            android:layout_toRightOf="@+id/CurrentlyEmployedLabel"
+            android:id="@+id/CurrentlyEmployedRadioBn">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+
+
             <RadioButton
-                android:id="@+id/Yes"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:text="Yes" />
+                    android:id="@+id/Yes"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                android:onClick="CurrentlyEmployed"
+                    android:checked="true"
+                    android:text="Yes" />
+
             <RadioButton
                 android:id="@+id/No"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:onClick="CurrentlyEmployed"
+                android:layout_weight="0.5"
+                android:checked="false"
                 android:text="No" />
-            </LinearLayout>
+
         </RadioGroup>
 
         <LinearLayout
@@ -274,6 +303,7 @@
                 android:id="@+id/Experience"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
+                android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="0dp"
@@ -405,9 +435,5 @@
 
 
     </RelativeLayout>
-
-
-
-
 
 </ScrollView>

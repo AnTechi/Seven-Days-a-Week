@@ -234,7 +234,7 @@ if(TextUtils.isEmpty(name_register) || TextUtils.isEmpty(email_id_register)|| Te
 
                     VerifyEmail();
                     progressDialog.dismiss();
-                    Intent loginIntent=new Intent(Signup_user.this,Login_Avtivity.class);
+                    Intent loginIntent=new Intent(Signup_user.this,LoginActivity.class);
                     Signup_user.this.startActivity(loginIntent);
                     Toast.makeText(Signup_user.this,"succesful",Toast.LENGTH_LONG).show();
                 }
