@@ -68,7 +68,7 @@ public class ResetPassword_activity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         progressDialog.dismiss();
                         Toast.makeText(ResetPassword_activity.this, "Reset password link sent to " + email, Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(ResetPassword_activity.this,Login_Avtivity.class));
+                        startActivity(new Intent(ResetPassword_activity.this,LoginActivity.class));
                         finish();
                     }
                     else

@@ -184,10 +184,10 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
-
             android:ems="10"
             android:hint="Select year"
             android:inputType="textPersonName"
+            android:onClick="setStartDate"
             app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintTop_toTopOf="parent" />
@@ -228,7 +228,7 @@
             android:id="@+id/PassoutyearActTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
+android:onClick="setPassoutDate"
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
@@ -250,6 +250,16 @@
         android:background="#808080"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutspace5" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="SetEducationDetails"
+        app:layout_constraintTop_toBottomOf="@+id/FifthSeparator" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,13 @@
 package com.example.sevendaysaweek;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -28,10 +30,11 @@ public class Stage2UserInfo extends AppCompatActivity {
 
 
 
-    String FullName,SocialSecurity,PresentAddress,PresentCity,PresentState,PresentZip,
+    public String FullName,SocialSecurity,PresentAddress,PresentCity,PresentState,PresentZip,
             PermanentAddress,PermanentCity,PermanentState,PermanentZip,PresentCountry
             ,PermanentCountry,Position,SalaryDesired,PresentEmployer,Experience,AcountHolderName,
             AcountNumber,BankName,BranchCode,IfscCode,BankCity;
+   public String [] desc;
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -47,44 +50,43 @@ public class Stage2UserInfo extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stage2_user_info);
-
-        FullNameTxt=findViewById(R.id.FullnameTxt);
-        SocialSecurityTxt=findViewById(R.id.SocialSecurityTxt);
-        PresentAddressTxt=findViewById(R.id.PresentAddressTxt);
-        PresentCityTxt=findViewById(R.id.PresentCityTxt);
-        PresentStateTxt=findViewById(R.id.PresentStateTxt);
-        PresentCountryTxt=findViewById(R.id.PresentCountryTxt);
-        PresentZipTxt=findViewById(R.id.PresentZipTxt);
-        PermanentAddressTxt=findViewById(R.id.PermanentAddressTxt);
-        PermanentCityTxt=findViewById(R.id.PermanentCityTxt);
-        PermanentStateTxt=findViewById(R.id.PermanentStateTxt);
-        PermanentZipTxt=findViewById(R.id.PermanentZipTxt);
-        PermanentCountryTxt=findViewById(R.id.PermanentCountryTxt);
-        PositionTxt=findViewById(R.id.PositionTxt);
-        SalaryDesiredTxt=findViewById(R.id.SalaryDesiredTxt);
-        PresentEmployerTxt=findViewById(R.id.PreviousEmployer);
-        ExperienceTxt=findViewById(R.id.Experience);
-        AcountHolderNameTxt=findViewById(R.id.AccountHolderNameTxt);
-        AcountNumberTxt=findViewById(R.id.AccountNumberTxt);
-        BankCityTxt=findViewById(R.id.BankCityTxt);
-        BankNameTxt=findViewById(R.id.BankNameTxt);
-        BranchCodeTxt=findViewById(R.id.BranchCodeTxt);
-        IfscCodeTxt=findViewById(R.id.IFSCcodeTxt);
-        WorkStartDate=findViewById(R.id.WorkStartDateTxt);
-        CurrentlyEmplyedRadioGrp=findViewById(R.id.CurrentlyEmployedRadioBn);
-
-        recyclerView=findViewById(R.id.EducationRecyclerView);
-        layoutManager=new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
         EducationDetailsActivity educationDetailsActivity=new EducationDetailsActivity();
 
-       // adapter=new RecycleAdapter();
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
+
+        {  //EditText
+            FullNameTxt = findViewById(R.id.FullnameTxt);
+            SocialSecurityTxt = findViewById(R.id.SocialSecurityTxt);
+            PresentAddressTxt = findViewById(R.id.PresentAddressTxt);
+            PresentCityTxt = findViewById(R.id.PresentCityTxt);
+            PresentStateTxt = findViewById(R.id.PresentStateTxt);
+            PresentCountryTxt = findViewById(R.id.PresentCountryTxt);
+            PresentZipTxt = findViewById(R.id.PresentZipTxt);
+            PermanentAddressTxt = findViewById(R.id.PermanentAddressTxt);
+            PermanentCityTxt = findViewById(R.id.PermanentCityTxt);
+            PermanentStateTxt = findViewById(R.id.PermanentStateTxt);
+            PermanentZipTxt = findViewById(R.id.PermanentZipTxt);
+            PermanentCountryTxt = findViewById(R.id.PermanentCountryTxt);
+            PositionTxt = findViewById(R.id.PositionTxt);
+            SalaryDesiredTxt = findViewById(R.id.SalaryDesiredTxt);
+            PresentEmployerTxt = findViewById(R.id.PreviousEmployer);
+            ExperienceTxt = findViewById(R.id.Experience);
+            AcountHolderNameTxt = findViewById(R.id.AccountHolderNameTxt);
+            AcountNumberTxt = findViewById(R.id.AccountNumberTxt);
+            BankCityTxt = findViewById(R.id.BankCityTxt);
+            BankNameTxt = findViewById(R.id.BankNameTxt);
+            BranchCodeTxt = findViewById(R.id.BranchCodeTxt);
+            IfscCodeTxt = findViewById(R.id.IFSCcodeTxt);
+            WorkStartDate = findViewById(R.id.WorkStartDateTxt);
+            CurrentlyEmplyedRadioGrp = findViewById(R.id.CurrentlyEmployedRadioBn);
+        }
+
+
 
         //Strings
         {
@@ -110,10 +112,10 @@ public class Stage2UserInfo extends AppCompatActivity {
             BranchCode=BranchCodeTxt.getText().toString();
             IfscCode=IfscCodeTxt.getText().toString();
 
-
-
-
         }
+
+
+
 
 
         calendar = Calendar.getInstance();
@@ -193,4 +195,45 @@ public class Stage2UserInfo extends AppCompatActivity {
             Toast.makeText(this, "All Fields are mandatory", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
+    public void openActivity(View view)
+    {
+
+
+
+        startActivityForResult(new Intent(this,EducationDetailsActivity.class),99);
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==99)
+        {
+            String degree=data.getStringExtra("DEGREE");
+            String institute=data.getStringExtra("INSTITUTE");
+            String education=data.getStringExtra("EDUCATIONTYPE");
+            String startdate=data.getStringExtra("STARTDATE");
+            String passoutdate=data.getStringExtra("PASSOUTDATE");
+
+            desc=new String[5];
+            desc[0]=degree;
+            desc[1]=institute;
+            desc[2]=education;
+            desc[3]=startdate;
+            desc[4]=passoutdate;
+
+            recyclerView=findViewById(R.id.EducationRecyclerView);
+            layoutManager=new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(layoutManager);
+            adapter=new RecycleAdapter(desc);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setAdapter(adapter);
+        }
+    }
+
+
 }

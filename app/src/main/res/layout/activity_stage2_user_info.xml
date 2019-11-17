@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".Stage2UserInfo"
     android:orientation="vertical"
+    android:background="@color/white"
     android:fillViewport="true">
 
     <RelativeLayout
@@ -185,6 +186,13 @@
             android:layout_below="@+id/PermanentCountryTxt"
             android:layout_marginTop="20dp"
             android:background="#808080" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:layout_below="@+id/PermanentCountryTxt"
+            android:onClick="openActivity"/>
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

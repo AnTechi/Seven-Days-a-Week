@@ -13,19 +13,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
     public class RecycleAdapter extends RecyclerView.Adapter <RecycleAdapter.MyViewHolder>  {
-        EducationDetailsActivity educationDetailsActivity=new EducationDetailsActivity();
 
-        private String[]desc;
-        private Context context;
-        public RecycleAdapter(String [] desc,Context context){
-            this.desc=desc;
-            this.context=context;
+
+        private String[]descarr;
+
+        public RecycleAdapter(String[] desc){
+
+       this.descarr=desc;
+
         }
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.educationlayout,parent,false);
-            MyViewHolder myViewHolder=new MyViewHolder(view,context,desc);
+            MyViewHolder myViewHolder=new MyViewHolder(view);
 
             return myViewHolder;
 
@@ -34,31 +35,29 @@ import androidx.recyclerview.widget.RecyclerView;
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
            // String image_id=desc[position];
-            holder.degree.setText(educationDetailsActivity.educationlist.get(0));
-            holder.institute.setText(educationDetailsActivity.educationlist.get(1));
-            holder.educationtype.setText(educationDetailsActivity.educationlist.get(2));
-            holder.startdate.setText(educationDetailsActivity.educationlist.get(3));
-            holder.passout.setText(educationDetailsActivity.educationlist.get(4));
+            holder.degree.setText(descarr[0]);
+            holder.institute.setText(descarr[1]);
+            holder.educationtype.setText(descarr[2]);
+            holder.startdate.setText(descarr[3]);
+            holder.passout.setText(descarr[4]);
         }
 
         @Override
         public int getItemCount() {
-            return educationDetailsActivity.educationlist.size();
+            return 1;
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
             private TextView degree,institute,startdate,passout,educationtype;
-            String []desc;
-            Context context;
-            public MyViewHolder(View itemView,Context context,String[]desc) {
+
+            public MyViewHolder(View itemView) {
                 super(itemView);
-               degree=itemView.findViewById(R.id.DegreenameTxt);
+                degree=itemView.findViewById(R.id.DegreenameTxt);
                 institute=itemView.findViewById(R.id.InstitutenameTxt);
                 startdate=itemView.findViewById(R.id.StartTxt);
                 passout=itemView.findViewById(R.id.PassoutyearTxt);
                 educationtype=itemView.findViewById(R.id.EducationTypeTxt);
-                this.desc=desc;
-                this.context=context;
+
 
             }
         }
