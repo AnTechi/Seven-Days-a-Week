@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layoutspace1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/EducationTypeLabel"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Education:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/EducationTypeTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25sp"
+            android:background="@color/white"
+
+            android:ems="10"
+            android:hint="Education Type"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/FirstSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+
+        android:background="#808080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutspace1" />
+
+    <LinearLayout
+        android:id="@+id/layoutspace2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FirstSeparator">
+
+        <TextView
+            android:id="@+id/Degreenamelabel"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Degree:     "
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/DegreenameTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25sp"
+            android:background="@color/white"
+
+            android:ems="10"
+            android:hint="Degree "
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <View
+        android:id="@+id/SecondSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+
+        android:background="#808080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutspace2" />
+    <LinearLayout
+        android:id="@+id/layoutspace3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SecondSeparator">
+
+        <TextView
+            android:id="@+id/Institutelabel"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Institute:   "
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/InstitutenameTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25sp"
+            android:background="@color/white"
+
+            android:ems="10"
+            android:hint="Institute"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <View
+        android:id="@+id/ThirdSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+
+        android:background="#808080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutspace3" />
+
+    <LinearLayout
+        android:id="@+id/layoutspace4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ThirdSeparator">
+
+        <TextView
+            android:id="@+id/Startdatelabel"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Start Date:   "
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/StartTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25sp"
+            android:background="@color/white"
+
+            android:ems="10"
+            android:hint="Select year"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <View
+        android:id="@+id/FourthSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+
+        android:background="#808080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutspace4" />
+
+    <LinearLayout
+        android:id="@+id/layoutspace5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FourthSeparator">
+
+        <TextView
+            android:id="@+id/Passoutlabel"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Pass Out:   "
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/PassoutyearTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25sp"
+            android:background="@color/white"
+
+            android:ems="10"
+            android:hint="Select year"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <View
+        android:id="@+id/FifthSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+
+        android:background="#808080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutspace5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
