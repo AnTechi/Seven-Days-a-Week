@@ -16,10 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
         private String[]descarr;
+        int number;
 
-        public RecycleAdapter(String[] desc){
+        public RecycleAdapter(String[] desc,int number){
 
        this.descarr=desc;
+       this.number=number;
 
         }
         @NonNull
@@ -34,7 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-           // String image_id=desc[position];
+
             holder.degree.setText(descarr[0]);
             holder.institute.setText(descarr[1]);
             holder.educationtype.setText(descarr[2]);
@@ -44,7 +46,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
         @Override
         public int getItemCount() {
-            return 1;
+            return number;
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{

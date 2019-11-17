@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Login");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

@@ -1,12 +1,14 @@
 package com.example.sevendaysaweek;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -23,9 +25,10 @@ public class EducationDetailsActivity extends AppCompatActivity {
 
     private EditText Degreename,Institutename,Educationtype;
     private TextView Startdate,Passout,date;
-
+    private Toolbar toolbar;
     private int year, month, day;
     private Calendar calendar;
+    public String degreenamestr,institutenamestr,educationtypestr,startdatestr,passoutstr;
 
 
 
@@ -43,16 +46,24 @@ public class EducationDetailsActivity extends AppCompatActivity {
         Educationtype=findViewById(R.id.EducationTypeActTxt);
         Startdate=findViewById(R.id.StartActTxt);
         Passout=findViewById(R.id.PassoutyearActTxt);
-        String degreenamestr,institutenamestr,educationtypestr,startdatestr,passoutstr;
 
 
-        {//Strings
+
+        toolbar=findViewById(R.id.whitetoolbar);
+
+        toolbar.setTitle("");
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        //Strings
             degreenamestr = Degreename.getText().toString().trim();
             institutenamestr = Degreename.getText().toString().trim();
             educationtypestr = Degreename.getText().toString().trim();
             startdatestr = Degreename.getText().toString().trim();
             passoutstr = Degreename.getText().toString().trim();
-        }
+
 
 
         {  //Date PIcker
@@ -63,6 +74,12 @@ public class EducationDetailsActivity extends AppCompatActivity {
             month = calendar.get(Calendar.MONTH);
             day = calendar.get(Calendar.DAY_OF_MONTH);
         }
+
+    }
+
+
+    public void NotEmptyFields()
+    {
 
     }
 
@@ -108,14 +125,22 @@ public class EducationDetailsActivity extends AppCompatActivity {
 
     public void SetEducationDetails(View view)
     {
-        Intent intent=new Intent();
-        intent.putExtra("DEGREE",Degreename.getText().toString());
-        intent.putExtra("INSTITUTE",Institutename.getText().toString());
-        intent.putExtra("EDUCATIONTYPE",Educationtype.getText().toString());
-        intent.putExtra("STARTDATE",Startdate.getText().toString());
-        intent.putExtra("PASSOUTDATE",Passout.getText().toString());
-        setResult(99,intent);
-        finish();//finishing activity
+
+        if(TextUtils.isEmpty(degreenamestr) || TextUtils.isEmpty(institutenamestr) ||  TextUtils.isEmpty(educationtypestr) ||
+                TextUtils.isEmpty(startdatestr) || TextUtils.isEmpty(degreenamestr) )
+        {
+            Toast.makeText(this, "All Fields are mandatory", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent intent = new Intent();
+            intent.putExtra("DEGREE", Degreename.getText().toString());
+            intent.putExtra("INSTITUTE", Institutename.getText().toString());
+            intent.putExtra("EDUCATIONTYPE", Educationtype.getText().toString());
+            intent.putExtra("STARTDATE", Startdate.getText().toString());
+            intent.putExtra("PASSOUTDATE", Passout.getText().toString());
+            setResult(99, intent);
+            finish();
+        }//finishing activity
     }
 
     public void setStartDate(View view) {

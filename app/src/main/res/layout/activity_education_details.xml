@@ -5,19 +5,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<include
-    layout="@layout/toolbar_layout"
-/>
+
+    <include
+        layout="@layout/whitetoolbarlayout"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Education"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginTop="15sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:id="@+id/layoutspace1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/whitetoolbar">
 
         <TextView
             android:id="@+id/EducationTypeLabel"
@@ -27,7 +40,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
             android:text="Education:"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,10 +53,10 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
-
             android:ems="10"
             android:hint="Education Type"
             android:inputType="textPersonName"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,7 +89,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
             android:text="Degree:     "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
 
             app:layout_constraintTop_toTopOf="parent" />
@@ -89,7 +102,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
-
+android:textSize="15sp"
             android:ems="10"
             android:hint="Degree "
             android:inputType="textPersonName"
@@ -103,7 +116,6 @@
         android:layout_height="0.1dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
-
         android:background="#808080"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutspace2" />
@@ -123,7 +135,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
             android:text="Institute:   "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
 
             app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +148,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
-
+android:textSize="15sp"
             android:ems="10"
             android:hint="Institute"
             android:inputType="textPersonName"
@@ -171,7 +183,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
             android:text="Start Date:   "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
 
             app:layout_constraintTop_toTopOf="parent" />
@@ -180,7 +192,7 @@
             android:id="@+id/StartActTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
+android:textSize="15sp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
@@ -219,7 +231,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
             android:text="Pass Out:   "
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
 
             app:layout_constraintTop_toTopOf="parent" />
@@ -232,7 +244,7 @@ android:onClick="setPassoutDate"
             android:layout_marginTop="15dp"
             android:layout_marginRight="25sp"
             android:background="@color/white"
-
+android:textSize="15sp"
             android:ems="10"
             android:hint="Select year"
             android:inputType="textPersonName"
@@ -251,14 +263,25 @@ android:onClick="setPassoutDate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutspace5" />
 
+
     <Button
-        android:id="@+id/button"
+
+        android:id="@+id/AddEducationSaveButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+
+        android:background="@drawable/btn_shape_round"
         android:onClick="SetEducationDetails"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+
+
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FifthSeparator" />
 
 

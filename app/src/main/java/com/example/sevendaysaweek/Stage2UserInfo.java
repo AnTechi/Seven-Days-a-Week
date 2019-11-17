@@ -28,6 +28,7 @@ public class Stage2UserInfo extends AppCompatActivity {
             ,PermanentCountryTxt,PositionTxt,SalaryDesiredTxt,PresentEmployerTxt,ExperienceTxt,AcountHolderNameTxt,
             AcountNumberTxt,BankNameTxt,BranchCodeTxt,IfscCodeTxt,BankCityTxt;
 
+    public int layoutNumber=0;
 
 
     public String FullName,SocialSecurity,PresentAddress,PresentCity,PresentState,PresentZip,
@@ -202,6 +203,7 @@ public class Stage2UserInfo extends AppCompatActivity {
     {
 
 
+        layoutNumber=layoutNumber+1;
 
         startActivityForResult(new Intent(this,EducationDetailsActivity.class),99);
 
@@ -229,7 +231,7 @@ public class Stage2UserInfo extends AppCompatActivity {
             recyclerView=findViewById(R.id.EducationRecyclerView);
             layoutManager=new LinearLayoutManager(this);
             recyclerView.setLayoutManager(layoutManager);
-            adapter=new RecycleAdapter(desc);
+            adapter=new RecycleAdapter(desc,layoutNumber);
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(adapter);
         }
