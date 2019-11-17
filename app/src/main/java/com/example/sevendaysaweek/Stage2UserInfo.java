@@ -1,6 +1,8 @@
 package com.example.sevendaysaweek;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -14,17 +16,29 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class Stage2UserInfo extends AppCompatActivity {
     private EditText FullNameTxt,SocialSecurityTxt,PresentAddressTxt,PresentCityTxt,PresentStateTxt,PresentZipTxt,
             PermanentAddressTxt,PermanentCityTxt,PermanentStateTxt,PermanentZipTxt,PresentCountryTxt
             ,PermanentCountryTxt,PositionTxt,SalaryDesiredTxt,PresentEmployerTxt,ExperienceTxt,AcountHolderNameTxt,
             AcountNumberTxt,BankNameTxt,BranchCodeTxt,IfscCodeTxt,BankCityTxt;
+
+
+
     String FullName,SocialSecurity,PresentAddress,PresentCity,PresentState,PresentZip,
             PermanentAddress,PermanentCity,PermanentState,PermanentZip,PresentCountry
             ,PermanentCountry,Position,SalaryDesired,PresentEmployer,Experience,AcountHolderName,
             AcountNumber,BankName,BranchCode,IfscCode,BankCity;
+
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+
+    private RecycleAdapter adapter;
+
+
     private RadioGroup CurrentlyEmplyedRadioGrp;
     private RadioButton Rb;
     private TextView WorkStartDate;
@@ -63,6 +77,15 @@ public class Stage2UserInfo extends AppCompatActivity {
         WorkStartDate=findViewById(R.id.WorkStartDateTxt);
         CurrentlyEmplyedRadioGrp=findViewById(R.id.CurrentlyEmployedRadioBn);
 
+        recyclerView=findViewById(R.id.EducationRecyclerView);
+        layoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        EducationDetailsActivity educationDetailsActivity=new EducationDetailsActivity();
+
+       // adapter=new RecycleAdapter();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+
         //Strings
         {
             FullName=FullNameTxt.getText().toString();
@@ -86,6 +109,7 @@ public class Stage2UserInfo extends AppCompatActivity {
             BankCity=BankCityTxt.getText().toString();
             BranchCode=BranchCodeTxt.getText().toString();
             IfscCode=IfscCodeTxt.getText().toString();
+
 
 
 
