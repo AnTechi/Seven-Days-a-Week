@@ -8,7 +8,7 @@
     tools:context=".Signup_user">
     <include
         layout="@layout/toolbar_layout"/>
-
+//hello
     <EditText
         android:id="@+id/Signup_Name"
         android:layout_width="0dp"
