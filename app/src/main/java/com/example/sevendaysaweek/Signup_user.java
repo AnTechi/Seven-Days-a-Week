@@ -278,7 +278,7 @@ public void VerifyEmail()
 
     public void Login(View view)
     {
-        startActivity(new Intent(this,Stage2UserInfo.class));
+        startActivity(new Intent(this,UserInfoStage2.class));
 
     }
 }

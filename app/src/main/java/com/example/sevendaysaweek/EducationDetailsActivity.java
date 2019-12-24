@@ -88,6 +88,7 @@ public class EducationDetailsActivity extends AppCompatActivity {
 
     //START DATE PICKER..
     public void setDate(TextView date) {
+        this.date=date;
         showDialog(999);
         Toast.makeText(getApplicationContext(), "ca",
                 Toast.LENGTH_SHORT)
@@ -126,8 +127,7 @@ public class EducationDetailsActivity extends AppCompatActivity {
     public void SetEducationDetails(View view)
     {
 
-        if(TextUtils.isEmpty(degreenamestr) || TextUtils.isEmpty(institutenamestr) ||  TextUtils.isEmpty(educationtypestr) ||
-                TextUtils.isEmpty(startdatestr) || TextUtils.isEmpty(degreenamestr) )
+        if(TextUtils.isEmpty(degreenamestr) || TextUtils.isEmpty(institutenamestr) ||  TextUtils.isEmpty(educationtypestr)  )
         {
             Toast.makeText(this, "All Fields are mandatory", Toast.LENGTH_SHORT).show();
         }
@@ -144,13 +144,13 @@ public class EducationDetailsActivity extends AppCompatActivity {
     }
 
     public void setStartDate(View view) {
-        date=findViewById(R.id.StartActTxt);
-        setDate(date);
+//        date=findViewById(R.id.StartActTxt);
+        setDate(Startdate);
 
     }
 
     public void setPassoutDate(View view) {
-        date=findViewById(R.id.PassoutyearActTxt);
-        setDate(date);
+       // date=findViewById(R.id.PassoutyearActTxt);
+        setDate(Passout);
     }
 }

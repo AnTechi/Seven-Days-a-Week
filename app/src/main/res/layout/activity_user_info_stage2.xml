@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+        android:background="@color/white"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/toolbar_layout"/>
+
+        <TextView
+            android:id="@+id/PersonalInfoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:text="PERSONAL INFO"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.088"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <LinearLayout
+            android:id="@+id/layoutspace1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/PersonalInfoLabel">
+
+            <TextView
+                android:id="@+id/FullNameLabel"
+
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Full Name:"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/FullNameStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Full Name"
+
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/FirstSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace1" />
+
+        <LinearLayout
+            android:id="@+id/layoutspace2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FirstSeparator">
+
+            <TextView
+                android:id="@+id/AddressLabel"
+
+                android:layout_width="150dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Address:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/PermannetAddressStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Type Permanent Address "
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/SecondSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace2" />
+        <LinearLayout
+            android:id="@+id/layoutspace3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SecondSeparator">
+
+            <TextView
+                android:id="@+id/CityLabel"
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="City:   "
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/CityStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select City"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/ThirdSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace3" />
+
+        <LinearLayout
+            android:id="@+id/layoutspace4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ThirdSeparator">
+
+            <TextView
+                android:id="@+id/StateLabel"
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="State:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/StateStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Select State"
+                android:inputType="textPersonName"
+
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/FourthSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace4" />
+
+        <LinearLayout
+            android:id="@+id/layoutspace5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FourthSeparator">
+
+            <TextView
+                android:id="@+id/CountryLabel"
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Country:   "
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/CountryStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="GetCountryList"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select Country"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+        <View
+            android:id="@+id/FifthSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace5" />
+        <Spinner
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/FifthSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/spinner"/>
+
+        <AutoCompleteTextView
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/spinner"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/hello"></AutoCompleteTextView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Education"
+            android:textColor="@color/redcolor"
+            android:textStyle="bold"
+            android:id="@+id/AddEducationStg2Txt"
+            android:onClick="AddEducation"
+            android:layout_marginTop="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/FifthSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="25dp"
+            tools:layout_editor_absoluteX="304dp" />
+        <View
+            android:id="@+id/SixthSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddEducationStg2Txt" />
+
+
+        //Employment details
+
+        <TextView
+            android:id="@+id/EmploymentRequiredLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="28dp"
+            android:text="Job Category"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SixthSeparator" />
+
+        <LinearLayout
+            android:id="@+id/layoutspace6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/EmploymentRequiredLabel">
+
+            <TextView
+                android:id="@+id/CategoryLabel"
+
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Category:"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/Categorystg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Choose Category"
+
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/SeventhSeperator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace6" />
+
+        <LinearLayout
+            android:id="@+id/layoutspace7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SeventhSeperator">
+
+            <TextView
+                android:id="@+id/EmploymentCityLabel"
+
+                android:layout_width="150dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="City:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/EmploymentCityStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select City "
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/EighthSeperator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace7" />
+        <LinearLayout
+            android:id="@+id/layoutspace8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EighthSeperator">
+
+            <TextView
+
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Starting From:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/StartDateStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select Date"
+                android:inputType="textPersonName"
+                />
+        </LinearLayout>
+        <View
+            android:id="@+id/NinthSeperator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutspace8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Work Experience"
+            android:textColor="@color/redcolor"
+            android:textStyle="bold"
+            android:id="@+id/AddExperiencebn"
+            android:layout_marginTop="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/NinthSeperator"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="25dp"
+            tools:layout_editor_absoluteX="304dp" />
+
+        <View
+            android:id="@+id/TenthSeperator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExperiencebn" />
+
+
+
+        //Bank Details
+
+        <TextView
+            android:id="@+id/BankDetailsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:text="BANK DETAILS "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TenthSeperator" />
+
+        <LinearLayout
+            android:id="@+id/BankDetailLinear1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailsLabel">
+
+            <TextView
+
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Account No.:"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/AccountNumberStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Type Account Number"
+
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/BankFirstSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailLinear1" />
+
+        <LinearLayout
+            android:id="@+id/BankDetailsLinear2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankFirstSeparator">
+
+            <TextView
+                android:id="@+id/HolderNameStg2Txt"
+                android:layout_width="150dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Account Holder:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/AccountHolderStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Type Name "
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/bankSecondSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailsLinear2" />
+        <LinearLayout
+            android:id="@+id/BankDetailsLinear3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bankSecondSeparator">
+
+            <TextView
+
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Bank:   "
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/BankNameStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Bank Name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/bankThirdSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailsLinear3" />
+
+        <LinearLayout
+            android:id="@+id/BankDetailLinear4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bankThirdSeparator">
+
+            <TextView
+
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Branch Code:"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/BranchCodeStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Branch Code"
+                android:inputType="textPersonName"
+                android:onClick="setStartDate"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/bankFourthSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailLinear4" />
+
+        <LinearLayout
+            android:id="@+id/BankDetailsLinear5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bankFourthSeparator">
+
+            <TextView
+
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="City:   "
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/BankCityStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setPassoutDate"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select City"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/bankFifthSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailsLinear5" />
+
+
+        <LinearLayout
+            android:id="@+id/BankDetailsLinear6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bankFifthSeparator">
+
+            <TextView
+
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="State:   "
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/BankStateStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setPassoutDate"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select State"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/bankSixthSeparator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailsLinear6" />
+
+        <LinearLayout
+            android:id="@+id/BankDetailsLinear7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bankSixthSeparator">
+
+            <TextView
+
+                android:textColor="@color/black"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:text="Country:   "
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/BankCountryStg2Txt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setPassoutDate"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25sp"
+                android:background="@color/white"
+                android:textSize="15sp"
+                android:ems="10"
+                android:hint="Select Country"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <View
+            android:id="@+id/bankSeventhSeperator"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+
+            android:background="#F0EFEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BankDetailsLinear7" />
+
+
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
